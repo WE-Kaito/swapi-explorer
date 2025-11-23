@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { twJoin } from "tailwind-merge";
 import { cn } from "@/components";
 
-type Props = {
+type Props = PropsWithChildren<{
   href: string;
-  children: ReactNode;
   className?: string;
-};
+}>;
 
 export function LinkCard({ href, children, className }: Props) {
   const baseClasses = twJoin(
