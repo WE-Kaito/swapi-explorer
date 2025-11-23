@@ -3,6 +3,7 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { twJoin } from "tailwind-merge";
 import { LinkCard } from "@/components";
 
@@ -17,6 +18,12 @@ const categories = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isOpening, setIsOpening] = useState(false);
+
+  function handleHoverMenu() {
+    setIsOpening(true);
+    setTimeout(() => setIsOpening(false), 250);
+  }
 
   return (
     <NavigationMenu.Root
@@ -37,6 +44,8 @@ export function Navbar() {
 
         <NavigationMenu.Item className={"relative"}>
           <NavigationMenu.Trigger
+            onMouseEnter={handleHoverMenu}
+            disabled={isOpening}
             className={twJoin(
               "group flex select-none items-center gap-1 rounded px-3 py-2 text-md font-orbitron",
               "hover:bg-foreground/10 focus:ring-2 focus:ring-foreground/20",
