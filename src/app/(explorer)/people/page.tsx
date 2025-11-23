@@ -1,5 +1,5 @@
 import { getPeoplePage, extractResourcePath } from "@/services/swapi";
-import { PageContainer, Heading, ListLink } from "@/components";
+import { PageContainer, Heading, LinkCard } from "@/components";
 
 type Props = { searchParams: Promise<{ page?: number }> };
 
@@ -11,9 +11,9 @@ export default async function PeoplePage({ searchParams }: Props) {
     <PageContainer>
       <Heading as="h1">People</Heading>
       {data.results.map((person) => (
-        <ListLink key={person.url} href={extractResourcePath(person.url)}>
+        <LinkCard key={person.url} href={extractResourcePath(person.url)}>
           {person.name}
-        </ListLink>
+        </LinkCard>
       ))}
     </PageContainer>
   );

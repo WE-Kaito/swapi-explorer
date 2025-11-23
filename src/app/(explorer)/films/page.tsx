@@ -1,5 +1,5 @@
 import { getFilmsPage, extractResourcePath } from "@/services/swapi";
-import { PageContainer, Heading, ListLink } from "@/components";
+import { PageContainer, Heading, LinkCard } from "@/components";
 
 const romanNumerals: Record<number, string> = {
   1: "I",
@@ -22,9 +22,9 @@ export default async function FilmsPage({ searchParams }: Props) {
     <PageContainer>
       <Heading as="h1">Films</Heading>
       {sortedFilms.map((film) => (
-        <ListLink key={film.url} href={extractResourcePath(film.url)}>
+        <LinkCard key={film.url} href={extractResourcePath(film.url)}>
           Episode {romanNumerals[film.episode_id]} - {film.title}
-        </ListLink>
+        </LinkCard>
       ))}
     </PageContainer>
   );

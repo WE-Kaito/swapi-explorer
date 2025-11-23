@@ -1,5 +1,5 @@
 import { getSpeciesPage, extractResourcePath } from "@/services/swapi";
-import { Heading, PageContainer, ListLink } from "@/components";
+import { Heading, PageContainer, LinkCard } from "@/components";
 
 type Props = { searchParams: Promise<{ page?: number }> };
 
@@ -11,9 +11,9 @@ export default async function SpeciesListPage({ searchParams }: Props) {
     <PageContainer>
       <Heading as="h1">Species</Heading>
       {data.results.map((species) => (
-        <ListLink key={species.url} href={extractResourcePath(species.url)}>
+        <LinkCard key={species.url} href={extractResourcePath(species.url)}>
           {species.name}
-        </ListLink>
+        </LinkCard>
       ))}
     </PageContainer>
   );

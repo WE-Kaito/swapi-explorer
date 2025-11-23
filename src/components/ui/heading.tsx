@@ -16,5 +16,5 @@ const headingSizes: Record<string, string> = {
 };
 
 export function Heading({ as: Tag = "h1", className, children }: HeadingProps) {
-  return <Tag className={cn(headingSizes[Tag], className)}>{children}</Tag>;
+  return <Tag className={cn(`${headingSizes[Tag]} font-orbitron`, className)}>{children}</Tag>;
 }

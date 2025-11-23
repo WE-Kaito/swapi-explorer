@@ -1,15 +1,15 @@
-import { Heading, ListLink, PageContainer } from "@/components";
+import { Heading, LinkCard, PageContainer } from "@/components";
 
 export default function Home() {
   return (
     <PageContainer>
       <Heading as="h1">SWAPI Explorer</Heading>
-      <ListLink href="/people">People</ListLink>
-      <ListLink href="/planets">Planets</ListLink>
-      <ListLink href="/films">Films</ListLink>
-      <ListLink href="/species">Species</ListLink>
-      <ListLink href="/vehicles">Vehicles</ListLink>
-      <ListLink href="/starships">Starships</ListLink>
+      <LinkCard href="/people">People</LinkCard>
+      <LinkCard href="/planets">Planets</LinkCard>
+      <LinkCard href="/films">Films</LinkCard>
+      <LinkCard href="/species">Species</LinkCard>
+      <LinkCard href="/vehicles">Vehicles</LinkCard>
+      <LinkCard href="/starships">Starships</LinkCard>
     </PageContainer>
   );
 }
