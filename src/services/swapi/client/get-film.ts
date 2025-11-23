@@ -1,12 +1,10 @@
 import { cacheLife, cacheTag } from "next/cache";
-import { SWAPI_BASE_URL } from "@/services/swapi/config";
-import type { FilmDto } from "@/services/swapi/types";
+import { swapiFetch, FilmDto } from "@/services/swapi";
 
 export async function getFilm(id: string): Promise<FilmDto> {
-    "use cache";
-    cacheLife("max");
-    cacheTag(`swapi-film-${id}`);
+  "use cache";
+  cacheLife("max");
+  cacheTag(`swapi-film-${id}`);
 
-    const res = await fetch(`${SWAPI_BASE_URL}/films/${id}`);
-    return res.json();
+  return swapiFetch<FilmDto>(`/films/${id}`);
 }

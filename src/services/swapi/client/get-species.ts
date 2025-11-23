@@ -1,12 +1,10 @@
 import { cacheLife, cacheTag } from "next/cache";
-import { SWAPI_BASE_URL } from "@/services/swapi/config";
-import type { SpeciesDto } from "@/services/swapi/types";
+import { swapiFetch, SpeciesDto } from "@/services/swapi";
 
 export async function getSpecies(id: string): Promise<SpeciesDto> {
-    "use cache";
-    cacheLife("max");
-    cacheTag(`swapi-species-${id}`);
+  "use cache";
+  cacheLife("max");
+  cacheTag(`swapi-species-${id}`);
 
-    const res = await fetch(`${SWAPI_BASE_URL}/species/${id}`);
-    return res.json();
+  return swapiFetch<SpeciesDto>(`/species/${id}`);
 }

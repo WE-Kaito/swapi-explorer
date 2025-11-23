@@ -1,12 +1,10 @@
 import { cacheLife, cacheTag } from "next/cache";
-import { SWAPI_BASE_URL } from "@/services/swapi/config";
-import type { PageDto, VehicleDto } from "@/services/swapi/types";
+import { swapiFetch, PageDto, VehicleDto } from "@/services/swapi";
 
 export async function getVehiclesPage(page = 1): Promise<PageDto<VehicleDto>> {
     "use cache";
     cacheLife("max");
     cacheTag("swapi-vehicles");
 
-    const res = await fetch(`${SWAPI_BASE_URL}/vehicles/?page=${page}`);
-    return res.json();
+    return swapiFetch<PageDto<VehicleDto>>(`/vehicles/?page=${page}`);
 }
