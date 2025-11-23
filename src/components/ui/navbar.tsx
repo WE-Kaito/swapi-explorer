@@ -26,10 +26,10 @@ export function Navbar() {
         "bg-background/80 backdrop-blur-sm border-b border-foreground/10"
       )}
     >
-      <NavigationMenu.List className={twJoin("flex list-none gap-1 rounded-md p-1")}>
+      <NavigationMenu.List className={"flex list-none gap-1 rounded-md p-1"}>
         <NavigationMenu.Item>
-          <NavigationMenu.Link asChild>
-            <LinkCard href="/" className={"border-0 bg-transparent"}>
+          <NavigationMenu.Link asChild active={pathname === "/"}>
+            <LinkCard href="/" className={twJoin("border-0 bg-transparent", pathname === "/" && "text-accent")}>
               Home
             </LinkCard>
           </NavigationMenu.Link>
@@ -50,7 +50,7 @@ export function Navbar() {
             />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
-            <ul className={twJoin("grid w-[200px] gap-1 p-2", "sm:w-[300px] sm:grid-cols-2")}>
+            <ul className={"grid w-[200px] gap-1 p-2 sm:w-[300px] sm:grid-cols-2"}>
               {categories.map((category) => {
                 const isActive = pathname === category.href;
                 return (
@@ -58,7 +58,7 @@ export function Navbar() {
                     <NavigationMenu.Link asChild active={isActive}>
                       <LinkCard
                         href={category.href}
-                        className={twJoin("border-0 bg-transparent", isActive && "text-accent bg-foreground/10")}
+                        className={twJoin("border-0 bg-transparent", isActive && "text-accent")}
                       >
                         {category.label}
                       </LinkCard>
