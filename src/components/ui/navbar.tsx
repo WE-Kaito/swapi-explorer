@@ -2,6 +2,7 @@
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
+import { usePathname } from "next/navigation";
 import { twJoin } from "tailwind-merge";
 import { LinkCard } from "@/components";
 
@@ -15,6 +16,8 @@ const categories = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
     <NavigationMenu.Root
       className={twJoin(
@@ -48,15 +51,21 @@ export function Navbar() {
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <ul className={twJoin("grid w-[200px] gap-1 p-2", "sm:w-[300px] sm:grid-cols-2")}>
-              {categories.map((category) => (
-                <li key={category.href}>
-                  <NavigationMenu.Link asChild>
-                    <LinkCard href={category.href} className={"border-0 bg-transparent"}>
-                      {category.label}
-                    </LinkCard>
-                  </NavigationMenu.Link>
-                </li>
-              ))}
+              {categories.map((category) => {
+                const isActive = pathname === category.href;
+                return (
+                  <li key={category.href}>
+                    <NavigationMenu.Link asChild active={isActive}>
+                      <LinkCard
+                        href={category.href}
+                        className={twJoin("border-0 bg-transparent", isActive && "text-accent bg-foreground/10")}
+                      >
+                        {category.label}
+                      </LinkCard>
+                    </NavigationMenu.Link>
+                  </li>
+                );
+              })}
             </ul>
           </NavigationMenu.Content>
           <NavigationMenu.Viewport
