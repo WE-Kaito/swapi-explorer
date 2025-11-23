@@ -1,4 +1,5 @@
 import { getVehicle } from "@/services/swapi";
+import { Heading, PageContainer } from "@/components";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -7,8 +8,8 @@ export default async function VehiclePage({ params }: Props) {
   const vehicle = await getVehicle(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{vehicle.name}</h1>
+    <PageContainer>
+      <Heading as="h1">{vehicle.name}</Heading>
       <ul>
         <li>model: {vehicle.model}</li>
         <li>manufacturer: {vehicle.manufacturer}</li>
@@ -36,6 +37,6 @@ export default async function VehiclePage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

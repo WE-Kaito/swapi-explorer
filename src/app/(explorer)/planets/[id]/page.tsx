@@ -1,4 +1,5 @@
 import { getPlanet } from "@/services/swapi";
+import { Heading, PageContainer } from "@/components";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -7,8 +8,8 @@ export default async function PlanetPage({ params }: Props) {
   const planet = await getPlanet(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{planet.name}</h1>
+    <PageContainer>
+      <Heading as="h1">{planet.name}</Heading>
       <ul>
         <li>rotation_period: {planet.rotation_period}</li>
         <li>orbital_period: {planet.orbital_period}</li>
@@ -34,6 +35,6 @@ export default async function PlanetPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

@@ -1,4 +1,5 @@
 import { getPerson } from "@/services/swapi";
+import { PageContainer, Heading } from "@/components";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -7,8 +8,8 @@ export default async function PersonPage({ params }: Props) {
   const person = await getPerson(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{person.name}</h1>
+    <PageContainer>
+      <Heading as="h1">{person.name}</Heading>
       <ul>
         <li>height: {person.height}</li>
         <li>hair_color: {person.hair_color}</li>
@@ -44,6 +45,6 @@ export default async function PersonPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

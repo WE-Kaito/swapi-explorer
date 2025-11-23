@@ -1,25 +1,20 @@
-import Link from "next/link";
 import { getPeoplePage, extractResourcePath } from "@/services/swapi";
+import { PageContainer, Heading, ListLink } from "@/components";
 
 type Props = { searchParams: Promise<{ page?: number }> };
 
 export default async function PeoplePage({ searchParams }: Props) {
   const page = (await searchParams).page ?? 1;
   const data = await getPeoplePage(page);
-  console.log(data);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">People</h1>
+    <PageContainer>
+      <Heading as="h1">People</Heading>
       {data.results.map((person) => (
-        <Link
-          key={person.url.toString()}
-          href={extractResourcePath(person.url)}
-          className="text-blue-600 hover:underline dark:text-blue-400"
-        >
+        <ListLink key={person.url} href={extractResourcePath(person.url)}>
           {person.name}
-        </Link>
+        </ListLink>
       ))}
-    </main>
+    </PageContainer>
   );
 }

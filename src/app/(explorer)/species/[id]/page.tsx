@@ -1,3 +1,4 @@
+import { Heading, PageContainer } from "@/components";
 import { getSpecies } from "@/services/swapi";
 
 type Props = { params: Promise<{ id: string }> };
@@ -7,8 +8,8 @@ export default async function SpeciesDetailPage({ params }: Props) {
   const species = await getSpecies(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{species.name}</h1>
+    <PageContainer>
+      <Heading as="h1">{species.name}</Heading>
       <ul>
         <li>classification: {species.classification}</li>
         <li>designation: {species.designation}</li>
@@ -35,6 +36,6 @@ export default async function SpeciesDetailPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

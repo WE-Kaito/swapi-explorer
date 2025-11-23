@@ -1,4 +1,5 @@
 import { getFilm } from "@/services/swapi";
+import { PageContainer, Heading } from "@/components";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -7,8 +8,8 @@ export default async function FilmPage({ params }: Props) {
   const film = await getFilm(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{film.title}</h1>
+    <PageContainer>
+      <Heading as="h1">{film.title}</Heading>
       <ul>
         <li>episode_id: {film.episode_id}</li>
         <li>opening_crawl: {film.opening_crawl}</li>
@@ -49,6 +50,6 @@ export default async function FilmPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

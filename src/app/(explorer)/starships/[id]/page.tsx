@@ -1,4 +1,5 @@
 import { getStarship } from "@/services/swapi";
+import { Heading, PageContainer } from "@/components";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -7,8 +8,8 @@ export default async function StarshipPage({ params }: Props) {
   const starship = await getStarship(id);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">{starship.name}</h1>
+    <PageContainer>
+      <Heading as="h1">{starship.name}</Heading>
       <ul>
         <li>model: {starship.model}</li>
         <li>manufacturer: {starship.manufacturer}</li>
@@ -38,6 +39,6 @@ export default async function StarshipPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
-    </main>
+    </PageContainer>
   );
 }

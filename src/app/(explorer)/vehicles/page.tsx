@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { getVehiclesPage, extractResourcePath } from "@/services/swapi";
+import { Heading, PageContainer, ListLink } from "@/components";
 
 type Props = { searchParams: Promise<{ page?: number }> };
 
@@ -8,17 +8,13 @@ export default async function VehiclesPage({ searchParams }: Props) {
   const data = await getVehiclesPage(page);
 
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 sm:items-start">
-      <h1 className="text-2xl font-bold">Vehicles</h1>
+    <PageContainer>
+      <Heading as="h1">Vehicles</Heading>
       {data.results.map((vehicle) => (
-        <Link
-          key={vehicle.url.toString()}
-          href={extractResourcePath(vehicle.url)}
-          className="text-blue-600 hover:underline dark:text-blue-400"
-        >
+        <ListLink key={vehicle.url} href={extractResourcePath(vehicle.url)}>
           {vehicle.name}
-        </Link>
+        </ListLink>
       ))}
-    </main>
+    </PageContainer>
   );
 }
