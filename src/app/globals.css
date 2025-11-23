@@ -3,16 +3,30 @@
 :root {
   --background: #d3cec4;
   --foreground: #171717;
+  --muted: #a8a29e;
+  --accent: #d97706;
+  --card: #c4beb4;
+  --border: #78716c;
 }
 
-.dark {
-  --background: #050713;
-  --foreground: #ededed;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #050713;
+    --foreground: #ededed;
+    --muted: #71717a;
+    --accent: #f59e0b;
+    --card: #0f1629;
+    --border: #27272a;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-orbitron: var(--font-orbitron);
@@ -21,8 +35,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-.radix-themes {
-  --default-font-family: var(--font-orbitron), system-ui, sans-serif !important;
+  font-family: var(--font-orbitron), system-ui, sans-serif;
 }

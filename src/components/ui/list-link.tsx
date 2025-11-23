@@ -1,15 +1,23 @@
-import { Link as RadixLink } from "@radix-ui/themes";
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import { Card } from "@/components";
+import Link from "next/link";
+import { ReactNode } from "react";
+import { twJoin } from "tailwind-merge";
 
-type Props = NextLinkProps & { children: React.ReactNode };
+type ListLinkProps = {
+  href: string;
+  children: ReactNode;
+};
 
-export function ListLink({ children, ...rest }: Props) {
+export function ListLink({ href, children }: ListLinkProps) {
   return (
-    <RadixLink asChild>
-      <NextLink className={"!w-full !py-2"} {...rest}>
-        <Card className={"!text-center"}>{children}</Card>
-      </NextLink>
-    </RadixLink>
+    <Link
+      href={href}
+      className={twJoin(
+        "block w-full rounded-md border border-foreground/10 bg-foreground/5 px-4 py-2",
+        "text-center no-underline",
+        "hover:bg-foreground/10 transition-colors"
+      )}
+    >
+      {children}
+    </Link>
   );
 }

@@ -1,9 +1,13 @@
-import { Card as RadixCard, CardProps } from "@radix-ui/themes";
+import { ReactNode } from "react";
 import { cn } from "@/components";
 
-export function Card(props: CardProps) {
-  const { className, ...rest } = props;
-  const baseClassName = "";
+type Props = {
+  className?: string;
+  children: ReactNode;
+};
 
-  return <RadixCard className={cn(baseClassName, className)} {...rest} />;
+export function Card({ className, children }: Props) {
+  const baseClassName = "rounded-md border border-foreground/10 bg-foreground/5 px-4 py-3";
+
+  return <div className={cn(baseClassName, className)}>{children}</div>;
 }

@@ -1,10 +1,20 @@
-import { Heading as RadixHeading, HeadingProps } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
+import { PropsWithChildren } from "react";
 import { cn } from "@/components";
 
-export function Heading(props: HeadingProps) {
-  const { className, ...rest } = props;
-  const baseClassName = "py-4";
+type HeadingProps = PropsWithChildren<{
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  className?: string;
+}>;
 
-  return <RadixHeading className={cn(baseClassName, className)} {...rest} />;
+const headingSizes: Record<string, string> = {
+  h1: "text-4xl py-6",
+  h2: "text-3xl py-5",
+  h3: "text-2xl py-4",
+  h4: "text-xl py-3",
+  h5: "text-lg py-2",
+  h6: "text-base py-1",
+};
+
+export function Heading({ as: Tag = "h1", className, children }: HeadingProps) {
+  return <Tag className={cn(headingSizes[Tag], className)}>{children}</Tag>;
 }
