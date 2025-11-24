@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className={"h-screen"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased min-h-screen font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased  h-full flex flex-col font-sans`}
       >
         <Header>
           <Suspense

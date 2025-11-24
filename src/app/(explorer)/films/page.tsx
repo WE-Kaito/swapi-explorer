@@ -22,11 +22,13 @@ export default async function FilmsPage({ searchParams }: Props) {
   return (
     <PageContainer>
       <Heading>Films</Heading>
-      {sortedFilms.map((film) => (
-        <LinkCard key={film.url} href={extractResourcePath(film.url)}>
-          Episode {romanNumerals[film.episode_id]} - {film.title}
-        </LinkCard>
-      ))}
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {sortedFilms.map((film) => (
+          <LinkCard key={film.url} href={extractResourcePath(film.url)}>
+            Episode {romanNumerals[film.episode_id]} - {film.title}
+          </LinkCard>
+        ))}
+      </div>
       <Suspense fallback={<Skeleton className="rounded-4xl" />}>
         <Pagination count={data.count} currentPage={page} basePath="/films" />
       </Suspense>

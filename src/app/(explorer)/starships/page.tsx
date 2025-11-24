@@ -11,11 +11,13 @@ export default async function StarshipsPage({ searchParams }: Props) {
   return (
     <PageContainer>
       <Heading>Starships</Heading>
-      {data.results.map((starship) => (
-        <LinkCard key={starship.url} href={extractResourcePath(starship.url)}>
-          {starship.name}
-        </LinkCard>
-      ))}
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {data.results.map((starship) => (
+          <LinkCard key={starship.url} href={extractResourcePath(starship.url)}>
+            {starship.name}
+          </LinkCard>
+        ))}
+      </div>
       <Suspense fallback={<Skeleton className="rounded-4xl" />}>
         <Pagination count={data.count} currentPage={page} basePath="/starships" />
       </Suspense>

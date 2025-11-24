@@ -11,11 +11,13 @@ export default async function PeoplePage({ searchParams }: Props) {
   return (
     <PageContainer>
       <Heading>People</Heading>
-      {data.results.map((person) => (
-        <LinkCard key={person.url} href={extractResourcePath(person.url)}>
-          {person.name}
-        </LinkCard>
-      ))}
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {data.results.map((person) => (
+          <LinkCard key={person.url} href={extractResourcePath(person.url)}>
+            {person.name}
+          </LinkCard>
+        ))}
+      </div>
       <Suspense fallback={<Skeleton className={"rounded-4xl"} />}>
         <Pagination count={data.count} currentPage={page} basePath="/people" />
       </Suspense>

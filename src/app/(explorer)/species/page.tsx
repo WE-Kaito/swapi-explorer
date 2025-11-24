@@ -11,11 +11,13 @@ export default async function SpeciesListPage({ searchParams }: Props) {
   return (
     <PageContainer>
       <Heading>Species</Heading>
-      {data.results.map((species) => (
-        <LinkCard key={species.url} href={extractResourcePath(species.url)}>
-          {species.name}
-        </LinkCard>
-      ))}
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {data.results.map((species) => (
+          <LinkCard key={species.url} href={extractResourcePath(species.url)}>
+            {species.name}
+          </LinkCard>
+        ))}
+      </div>
       <Suspense fallback={<Skeleton className="rounded-4xl" />}>
         <Pagination count={data.count} currentPage={page} basePath="/species" />
       </Suspense>

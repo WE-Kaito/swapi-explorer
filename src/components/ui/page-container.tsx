@@ -2,10 +2,7 @@ import { cn } from "@/components";
 import { twJoin } from "tailwind-merge";
 
 export function PageContainer({ children, className }: { children: React.ReactNode; className?: string }) {
-  const baseClassName = twJoin(
-    "flex flex-col items-center overflow-auto",
-    "max-w-screen-sm mx-auto py-2 md:py-4 2xl:py-8"
-  );
+  const baseClassName = twJoin("flex flex-col items-center", "w-full max-w-screen-sm flex-1 mx-auto pt-4 sm:py-8");
 
   return <main className={cn(baseClassName, className)}>{children}</main>;
 }

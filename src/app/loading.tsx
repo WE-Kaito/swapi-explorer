@@ -1,15 +1,14 @@
-import { PageContainer } from "@/components";
+import { PageContainer, Skeleton } from "@/components";
 
 export default function Loading() {
   return (
     <PageContainer>
-      <div className="h-8 w-48 animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-12 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
+      <Skeleton text="SWAPI Explorer" className="h-12 mb-4" />
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <Skeleton key={i} />
+        ))}
+      </div>
     </PageContainer>
   );
 }

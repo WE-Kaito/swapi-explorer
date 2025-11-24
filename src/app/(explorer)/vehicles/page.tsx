@@ -11,11 +11,13 @@ export default async function VehiclesPage({ searchParams }: Props) {
   return (
     <PageContainer>
       <Heading>Vehicles</Heading>
-      {data.results.map((vehicle) => (
-        <LinkCard key={vehicle.url} href={extractResourcePath(vehicle.url)}>
-          {vehicle.name}
-        </LinkCard>
-      ))}
+      <div className="px-12 mb-4 flex flex-col gap-2 w-full">
+        {data.results.map((vehicle) => (
+          <LinkCard key={vehicle.url} href={extractResourcePath(vehicle.url)}>
+            {vehicle.name}
+          </LinkCard>
+        ))}
+      </div>
       <Suspense fallback={<Skeleton className="rounded-4xl" />}>
         <Pagination count={data.count} currentPage={page} basePath="/vehicles" />
       </Suspense>
