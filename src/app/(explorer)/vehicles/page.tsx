@@ -9,7 +9,7 @@ export default async function VehiclesPage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">Vehicles</Heading>
+      <Heading>Vehicles</Heading>
       {data.results.map((vehicle) => (
         <LinkCard key={vehicle.url} href={extractResourcePath(vehicle.url)}>
           {vehicle.name}

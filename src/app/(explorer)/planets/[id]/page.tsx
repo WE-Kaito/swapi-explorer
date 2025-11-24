@@ -9,7 +9,7 @@ export default async function PlanetPage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{planet.name}</Heading>
+      <Heading>{planet.name}</Heading>
       <ul>
         <li>rotation_period: {planet.rotation_period}</li>
         <li>orbital_period: {planet.orbital_period}</li>

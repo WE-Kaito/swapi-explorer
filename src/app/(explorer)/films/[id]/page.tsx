@@ -9,7 +9,7 @@ export default async function FilmPage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{film.title}</Heading>
+      <Heading>{film.title}</Heading>
       <ul>
         <li>episode_id: {film.episode_id}</li>
         <li>opening_crawl: {film.opening_crawl}</li>

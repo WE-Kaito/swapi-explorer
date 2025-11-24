@@ -3,7 +3,7 @@ import { Button, Heading, LinkCard, PageContainer } from "@/components";
 export default function Home() {
   return (
     <PageContainer>
-      <Heading as="h1">SWAPI Explorer</Heading>
+      <Heading>SWAPI Explorer</Heading>
       <LinkCard href="/people">People</LinkCard>
       <LinkCard href="/planets">Planets</LinkCard>
       <LinkCard href="/films">Films</LinkCard>

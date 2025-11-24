@@ -9,7 +9,7 @@ export default async function StarshipsPage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">Starships</Heading>
+      <Heading>Starships</Heading>
       {data.results.map((starship) => (
         <LinkCard key={starship.url} href={extractResourcePath(starship.url)}>
           {starship.name}

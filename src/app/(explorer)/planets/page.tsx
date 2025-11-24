@@ -9,7 +9,7 @@ export default async function PlanetsPage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">Planets</Heading>
+      <Heading>Planets</Heading>
       {data.results.map((planet) => (
         <LinkCard key={planet.url} href={extractResourcePath(planet.url)}>
           {planet.name}

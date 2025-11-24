@@ -20,7 +20,7 @@ export default async function FilmsPage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">Films</Heading>
+      <Heading>Films</Heading>
       {sortedFilms.map((film) => (
         <LinkCard key={film.url} href={extractResourcePath(film.url)}>
           Episode {romanNumerals[film.episode_id]} - {film.title}

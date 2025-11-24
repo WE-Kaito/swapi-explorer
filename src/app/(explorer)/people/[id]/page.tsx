@@ -9,7 +9,7 @@ export default async function PersonPage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{person.name}</Heading>
+      <Heading>{person.name}</Heading>
       <ul>
         <li>height: {person.height}</li>
         <li>hair_color: {person.hair_color}</li>

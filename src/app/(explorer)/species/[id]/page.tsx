@@ -9,7 +9,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{species.name}</Heading>
+      <Heading>{species.name}</Heading>
       <ul>
         <li>classification: {species.classification}</li>
         <li>designation: {species.designation}</li>

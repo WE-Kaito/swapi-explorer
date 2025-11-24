@@ -9,7 +9,7 @@ export default async function PeoplePage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">People</Heading>
+      <Heading>People</Heading>
       {data.results.map((person) => (
         <LinkCard key={person.url} href={extractResourcePath(person.url)}>
           {person.name}

@@ -9,7 +9,7 @@ export default async function StarshipPage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{starship.name}</Heading>
+      <Heading>{starship.name}</Heading>
       <ul>
         <li>model: {starship.model}</li>
         <li>manufacturer: {starship.manufacturer}</li>

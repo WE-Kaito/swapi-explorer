@@ -9,7 +9,7 @@ export default async function SpeciesListPage({ searchParams }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">Species</Heading>
+      <Heading>Species</Heading>
       {data.results.map((species) => (
         <LinkCard key={species.url} href={extractResourcePath(species.url)}>
           {species.name}

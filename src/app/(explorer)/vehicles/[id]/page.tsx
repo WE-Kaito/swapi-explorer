@@ -9,7 +9,7 @@ export default async function VehiclePage({ params }: Props) {
 
   return (
     <PageContainer>
-      <Heading as="h1">{vehicle.name}</Heading>
+      <Heading>{vehicle.name}</Heading>
       <ul>
         <li>model: {vehicle.model}</li>
         <li>manufacturer: {vehicle.manufacturer}</li>

@@ -1,15 +1,11 @@
-import Link from "next/link";
+import { Heading, LinkCard, PageContainer } from "@/components";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">Person not found</h1>
-      <Link href="/people" className="text-blue-600 hover:underline dark:text-blue-400">
-        Back to People
-      </Link>
-      <Link href="/" className="text-blue-600 hover:underline dark:text-blue-400">
-        Go to Home
-      </Link>
-    </div>
+    <PageContainer>
+      <Heading>Person not found</Heading>
+      <LinkCard href="/people">Back to People</LinkCard>
+      <LinkCard href="/">Go to Home</LinkCard>
+    </PageContainer>
   );
 }
