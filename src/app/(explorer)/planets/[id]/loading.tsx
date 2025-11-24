@@ -1,11 +1,17 @@
-import { PageContainer } from "@/components";
+import { PageContainer, Skeleton } from "@/components";
 
 export default function Loading() {
   return (
-    <PageContainer>
-      <div className="h-8 w-48 animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-40 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
-      <div className="h-24 w-full animate-pulse rounded bg-zinc-200 dark:bg-zinc-800" />
+    <PageContainer className="px-8">
+      <Skeleton className="h-10 w-48 my-4" />
+      <section className="w-full">
+        <Skeleton className="h-8 w-24 my-2" />
+        <Skeleton className="h-50 mb-2" />
+      </section>
+      <section className="w-full">
+        <Skeleton className="h-8 w-48 my-2" />
+        <Skeleton className="h-24" />
+      </section>
     </PageContainer>
   );
 }
