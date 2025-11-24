@@ -4,7 +4,8 @@ export default function Home() {
   return (
     <PageContainer>
       <Heading>SWAPI Explorer</Heading>
-      <div className="px-12 flex flex-col gap-2 w-full">
+      <p className={"py-6"}>A Star Wars API navigation. May the force be with you!</p>
+      <div className="px-28 flex flex-col gap-4 w-full">
         <LinkCard href="/people">People</LinkCard>
         <LinkCard href="/planets">Planets</LinkCard>
         <LinkCard href="/films">Films</LinkCard>

@@ -11,7 +11,7 @@ export function Skeleton({ className, text }: Props) {
 
   return (
     <div className={cn(baseClasses, className)}>
-      <span className="invisible" aria-hidden>
+      <span className="invisible px-16" aria-hidden>
         {text}
       </span>
     </div>

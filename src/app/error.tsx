@@ -6,8 +6,10 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
   return (
     <PageContainer>
       <Heading>Error</Heading>
-      <p>Something went wrong...</p>
-      <Button onClick={reset}>Try again</Button>
+      <div className={"flex flex-col align-middle gap-8 w-60"}>
+        <span>Something went wrong...</span>
+        <Button onClick={reset}>Try again</Button>
+      </div>
     </PageContainer>
   );
 }
