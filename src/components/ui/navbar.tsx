@@ -26,13 +26,7 @@ export function Navbar() {
   }
 
   return (
-    <NavigationMenu.Root
-      className={twJoin(
-        "relative z-10 w-full py-1",
-        "flex justify-center",
-        "bg-background/80 backdrop-blur-sm border-b border-foreground/10"
-      )}
-    >
+    <NavigationMenu.Root className="flex justify-center">
       <NavigationMenu.List className={"flex list-none gap-1 rounded-md p-1"}>
         <NavigationMenu.Item>
           <NavigationMenu.Link asChild active={pathname === "/"}>
