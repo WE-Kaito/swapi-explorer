@@ -1,10 +1,11 @@
 import { getVehiclesPage, extractResourcePath } from "@/services/swapi";
-import { Heading, PageContainer, LinkCard } from "@/components";
+import { Heading, PageContainer, LinkCard, Pagination, Skeleton } from "@/components";
+import { Suspense } from "react";
 
-type Props = { searchParams: Promise<{ page?: number }> };
+type Props = { searchParams: Promise<{ page?: string }> };
 
 export default async function VehiclesPage({ searchParams }: Props) {
-  const page = (await searchParams).page ?? 1;
+  const page = Number((await searchParams).page) || 1;
   const data = await getVehiclesPage(page);
 
   return (
@@ -15,6 +16,9 @@ export default async function VehiclesPage({ searchParams }: Props) {
           {vehicle.name}
         </LinkCard>
       ))}
+      <Suspense fallback={<Skeleton className="rounded-4xl" />}>
+        <Pagination count={data.count} currentPage={page} basePath="/vehicles" />
+      </Suspense>
     </PageContainer>
   );
 }

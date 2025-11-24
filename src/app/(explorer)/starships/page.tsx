@@ -1,10 +1,11 @@
 import { getStarshipsPage, extractResourcePath } from "@/services/swapi";
-import { Heading, PageContainer, LinkCard } from "@/components";
+import { Heading, PageContainer, LinkCard, Pagination, Skeleton } from "@/components";
+import { Suspense } from "react";
 
-type Props = { searchParams: Promise<{ page?: number }> };
+type Props = { searchParams: Promise<{ page?: string }> };
 
 export default async function StarshipsPage({ searchParams }: Props) {
-  const page = (await searchParams).page ?? 1;
+  const page = Number((await searchParams).page) || 1;
   const data = await getStarshipsPage(page);
 
   return (
@@ -15,6 +16,9 @@ export default async function StarshipsPage({ searchParams }: Props) {
           {starship.name}
         </LinkCard>
       ))}
+      <Suspense fallback={<Skeleton className="rounded-4xl" />}>
+        <Pagination count={data.count} currentPage={page} basePath="/starships" />
+      </Suspense>
     </PageContainer>
   );
 }

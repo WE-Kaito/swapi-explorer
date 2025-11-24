@@ -1,10 +1,11 @@
 import { getPlanetsPage, extractResourcePath } from "@/services/swapi";
-import { Heading, PageContainer, LinkCard } from "@/components";
+import { Heading, PageContainer, LinkCard, Pagination, Skeleton } from "@/components";
+import { Suspense } from "react";
 
-type Props = { searchParams: Promise<{ page?: number }> };
+type Props = { searchParams: Promise<{ page?: string }> };
 
 export default async function PlanetsPage({ searchParams }: Props) {
-  const page = (await searchParams).page ?? 1;
+  const page = Number((await searchParams).page) || 1;
   const data = await getPlanetsPage(page);
 
   return (
@@ -15,6 +16,9 @@ export default async function PlanetsPage({ searchParams }: Props) {
           {planet.name}
         </LinkCard>
       ))}
+      <Suspense fallback={<Skeleton className="rounded-4xl" />}>
+        <Pagination count={data.count} currentPage={page} basePath="/planets" />
+      </Suspense>
     </PageContainer>
   );
 }

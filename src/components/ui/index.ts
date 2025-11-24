@@ -6,3 +6,4 @@ export * from "./header";
 export * from "./navbar";
 export * from "./button";
 export * from "./skeleton";
+export * from "./pagination";

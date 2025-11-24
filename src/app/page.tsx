@@ -1,4 +1,4 @@
-import { Button, Heading, LinkCard, PageContainer } from "@/components";
+import { Button, Heading, LinkCard, PageContainer, Skeleton } from "@/components";
 
 export default function Home() {
   return (

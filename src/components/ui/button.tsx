@@ -4,7 +4,7 @@ import { twJoin } from "tailwind-merge";
 
 export function Button({ className, children, ...rest }: ComponentPropsWithoutRef<"button">) {
   const baseClasses = twJoin(
-    "rounded-full px-6 py-3",
+    "rounded-full px-4 py-2 sm:px-6 sm:py-3",
     "font-orbitron",
     "bg-gradient-to-b from-accent/20 to-accent/10 border border-accent/30",
     "shadow-lg",

@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function Skeleton({ className, text }: Props) {
-  const baseClasses = twJoin("block rounded-md px-4 py-2 animate-pulse bg-foreground/10", text ? "w-fit" : "w-full");
+  const baseClasses = twJoin("block rounded-md h-10 animate-pulse bg-foreground/10", text ? "w-fit" : "w-full");
 
   return (
     <div className={cn(baseClasses, className)}>
