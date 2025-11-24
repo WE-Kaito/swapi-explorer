@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import { PropsWithChildren, Suspense } from "react";
-import { Header, Navbar, Skeleton } from "@/components/ui";
+import { Header, Navbar, Skeleton, ParticlesBackground } from "@/components/ui";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -32,6 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </Suspense>
         </Header>
         {children}
+        <ParticlesBackground />
       </body>
     </html>
   );

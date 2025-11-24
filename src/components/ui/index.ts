@@ -7,3 +7,4 @@ export * from "./navbar";
 export * from "./button";
 export * from "./skeleton";
 export * from "./pagination";
+export * from "./particles-background";
