@@ -15,18 +15,18 @@ export default async function StarshipPage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "model", value: starship.model },
-            { key: "manufacturer", value: starship.manufacturer },
-            { key: "cost_in_credits", value: starship.cost_in_credits },
-            { key: "length", value: starship.length },
-            { key: "max_atmosphering_speed", value: starship.max_atmosphering_speed },
-            { key: "crew", value: starship.crew },
-            { key: "passengers", value: starship.passengers },
-            { key: "cargo_capacity", value: starship.cargo_capacity },
-            { key: "consumables", value: starship.consumables },
-            { key: "hyperdrive_rating", value: starship.hyperdrive_rating },
-            { key: "MGLT", value: starship.MGLT },
-            { key: "starship_class", value: starship.starship_class },
+            { label: "Model", value: starship.model },
+            { label: "Manufacturer", value: starship.manufacturer },
+            { label: "Cost", value: starship.cost_in_credits },
+            { label: "Length", value: starship.length },
+            { label: "Max Speed", value: starship.max_atmosphering_speed },
+            { label: "Crew", value: starship.crew },
+            { label: "Passengers", value: starship.passengers },
+            { label: "Cargo Capacity", value: starship.cargo_capacity },
+            { label: "Consumables", value: starship.consumables },
+            { label: "Hyperdrive Rating", value: starship.hyperdrive_rating },
+            { label: "MGLT", value: starship.MGLT },
+            { label: "Class", value: starship.starship_class },
           ]}
         />
       </section>

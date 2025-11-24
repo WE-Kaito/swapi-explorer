@@ -15,11 +15,11 @@ export default async function PersonPage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "height", value: person.height },
-            { key: "hair_color", value: person.hair_color },
-            { key: "skin_color", value: person.skin_color },
-            { key: "birth_year", value: person.birth_year },
-            { key: "gender", value: person.gender },
+            { label: "Height", value: person.height },
+            { label: "Hair Color", value: person.hair_color },
+            { label: "Skin Color", value: person.skin_color },
+            { label: "Birth Year", value: person.birth_year },
+            { label: "Gender", value: person.gender },
           ]}
         />
       </section>

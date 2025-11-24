@@ -15,16 +15,16 @@ export default async function VehiclePage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "model", value: vehicle.model },
-            { key: "manufacturer", value: vehicle.manufacturer },
-            { key: "cost_in_credits", value: vehicle.cost_in_credits },
-            { key: "length", value: vehicle.length },
-            { key: "max_atmosphering_speed", value: vehicle.max_atmosphering_speed },
-            { key: "crew", value: vehicle.crew },
-            { key: "passengers", value: vehicle.passengers },
-            { key: "cargo_capacity", value: vehicle.cargo_capacity },
-            { key: "consumables", value: vehicle.consumables },
-            { key: "vehicle_class", value: vehicle.vehicle_class },
+            { label: "Model", value: vehicle.model },
+            { label: "Manufacturer", value: vehicle.manufacturer },
+            { label: "Cost", value: vehicle.cost_in_credits },
+            { label: "Length", value: vehicle.length },
+            { label: "Max Speed", value: vehicle.max_atmosphering_speed },
+            { label: "Crew", value: vehicle.crew },
+            { label: "Passengers", value: vehicle.passengers },
+            { label: "Cargo Capacity", value: vehicle.cargo_capacity },
+            { label: "Consumables", value: vehicle.consumables },
+            { label: "Class", value: vehicle.vehicle_class },
           ]}
         />
       </section>

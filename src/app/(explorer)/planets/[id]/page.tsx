@@ -15,14 +15,14 @@ export default async function PlanetPage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "rotation_period", value: planet.rotation_period },
-            { key: "orbital_period", value: planet.orbital_period },
-            { key: "diameter", value: planet.diameter },
-            { key: "climate", value: planet.climate },
-            { key: "gravity", value: planet.gravity },
-            { key: "terrain", value: planet.terrain },
-            { key: "surface_water", value: planet.surface_water },
-            { key: "population", value: planet.population },
+            { label: "Rotation Period", value: planet.rotation_period },
+            { label: "Orbital Period", value: planet.orbital_period },
+            { label: "Diameter", value: planet.diameter },
+            { label: "Climate", value: planet.climate },
+            { label: "Gravity", value: planet.gravity },
+            { label: "Terrain", value: planet.terrain },
+            { label: "Surface Water", value: planet.surface_water },
+            { label: "Population", value: planet.population },
           ]}
         />
       </section>

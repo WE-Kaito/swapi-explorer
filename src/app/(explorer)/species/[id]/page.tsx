@@ -15,14 +15,14 @@ export default async function SpeciesDetailPage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "classification", value: species.classification },
-            { key: "designation", value: species.designation },
-            { key: "average_height", value: species.average_height },
-            { key: "skin_colors", value: species.skin_colors },
-            { key: "hair_colors", value: species.hair_colors },
-            { key: "eye_colors", value: species.eye_colors },
-            { key: "average_lifespan", value: species.average_lifespan },
-            { key: "language", value: species.language },
+            { label: "Classification", value: species.classification },
+            { label: "Designation", value: species.designation },
+            { label: "Average Height", value: species.average_height },
+            { label: "Skin Colors", value: species.skin_colors },
+            { label: "Hair Colors", value: species.hair_colors },
+            { label: "Eye Colors", value: species.eye_colors },
+            { label: "Average Lifespan", value: species.average_lifespan },
+            { label: "Language", value: species.language },
           ]}
         />
       </section>

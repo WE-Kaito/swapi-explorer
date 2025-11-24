@@ -15,11 +15,11 @@ export default async function FilmPage({ params }: Props) {
         <Heading as={"h2"}>Details:</Heading>
         <DetailsTable
           entries={[
-            { key: "episode_id", value: film.episode_id },
-            { key: "opening_crawl", value: film.opening_crawl },
-            { key: "director", value: film.director },
-            { key: "producer", value: film.producer },
-            { key: "release_date", value: film.release_date },
+            { label: "Episode", value: film.episode_id },
+            { label: "Opening Crawl", value: film.opening_crawl },
+            { label: "Director", value: film.director },
+            { label: "Producer", value: film.producer },
+            { label: "Release Date", value: film.release_date },
           ]}
         />
       </section>
