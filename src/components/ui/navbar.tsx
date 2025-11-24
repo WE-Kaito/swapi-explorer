@@ -30,7 +30,11 @@ export function Navbar() {
       <NavigationMenu.List className={"flex list-none gap-1 rounded-md p-1"}>
         <NavigationMenu.Item>
           <NavigationMenu.Link asChild active={pathname === "/"}>
-            <LinkCard href="/" className={twJoin("border-0 bg-transparent py-2", pathname === "/" && "text-accent")}>
+            <LinkCard
+              href="/"
+              showIcon={false}
+              className={twJoin("border-0 bg-transparent py-2", pathname === "/" && "text-accent")}
+            >
               Home
             </LinkCard>
           </NavigationMenu.Link>
@@ -61,6 +65,7 @@ export function Navbar() {
                     <NavigationMenu.Link asChild active={isActive}>
                       <LinkCard
                         href={category.href}
+                        showIcon={false}
                         className={twJoin("border-0 bg-transparent py-2", isActive && "text-accent")}
                       >
                         {category.label}

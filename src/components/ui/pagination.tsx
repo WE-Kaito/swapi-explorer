@@ -71,6 +71,7 @@ export function Pagination({ count, currentPage, basePath }: Props) {
             {visiblePages.length < totalPages && index > 0 && <DotsHorizontalIcon className="text-foreground/50" />}
             <LinkCard
               href={`${basePath}?page=${page}`}
+              showIcon={false}
               className={twJoin(
                 "w-6 h-6 p-0 sm:w-10 sm:h-10 sm:p-2 rounded-full flex items-center justify-center",
                 page === currentPage && "text-accent"
