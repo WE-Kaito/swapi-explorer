@@ -26,7 +26,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
           ]}
         />
       </section>
-      <section className="w-full">
+      <section className="w-full mb-4">
         <Heading as={"h2"}>Further Resources:</Heading>
         <FurtherLinksAccordion
           sections={[
