@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Possible Improvements
 
+- **Caching**: Pages still show loading.tsx because of use of search params. Possible solution: [generateStaticParams](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)
 - **Documentation**: More code comments using JSDoc (explanations, requirements, examples)
 - **Testing**: E2E tests with Playwright for navigation and data fetching
 - **Storybook**: Component documentation and visual testing
