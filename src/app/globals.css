@@ -36,6 +36,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  cursor: url('/assets/cursors/default.cur'), auto;
+}
+
+button, a {
+  cursor: url('/assets/cursors/pointer.cur'), pointer;
+}
+
+[disabled="true"], [aria-disabled="true"] {
+  cursor: url('/assets/cursors/not-allowed.cur'), not-allowed;
 }
 
 /* Navigation Menu Animations */
@@ -79,9 +88,30 @@ body {
   }
 }
 
+/* Accordion Animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
 @theme inline {
   --animate-scaleIn: scaleIn 200ms ease;
   --animate-scaleOut: scaleOut 200ms ease;
   --animate-fadeIn: fadeIn 200ms ease;
   --animate-fadeOut: fadeOut 200ms ease;
+  --animate-accordion-down: accordion-down 200ms ease-out;
+  --animate-accordion-up: accordion-up 200ms ease-out;
 }
