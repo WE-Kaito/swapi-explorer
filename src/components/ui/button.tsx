@@ -1,3 +1,5 @@
+"use client";
+
 import { ComponentPropsWithoutRef, MouseEvent, KeyboardEvent } from "react";
 import { cn } from "@/components";
 import { twJoin } from "tailwind-merge";
