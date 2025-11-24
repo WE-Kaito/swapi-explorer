@@ -40,7 +40,8 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Possible Improvements
 
+- **Documentation**: More code comments using JSDoc (explanations, requirements, examples)
 - **Testing**: E2E tests with Playwright for navigation and data fetching
 - **Storybook**: Component documentation and visual testing
 - **Accessibility**: check/add ARIA descriptions, screen reader testing
-- **Tailwind**: Cleaner utility class composition (limited experience in speed-coding context)
+- **Tailwind**: Cleaner use of tailwind (limited experience + time constraint)
