@@ -1,4 +1,4 @@
-import { Heading, PageContainer, Button } from "@/components";
+import { Heading, PageContainer, Button, FurtherLinksAccordion } from "@/components";
 import { getSpecies } from "@/services/swapi";
 import Link from "next/link";
 
@@ -9,8 +9,9 @@ export default async function SpeciesDetailPage({ params }: Props) {
   const species = await getSpecies(id);
 
   return (
-    <PageContainer>
+    <PageContainer className={"px-8"}>
       <Heading>{species.name}</Heading>
+      <Heading as={"h2"}>Details:</Heading>
       <ul>
         <li>classification: {species.classification}</li>
         <li>designation: {species.designation}</li>
@@ -21,22 +22,14 @@ export default async function SpeciesDetailPage({ params }: Props) {
         <li>average_lifespan: {species.average_lifespan}</li>
         <li>homeworld: {species.homeworld}</li>
         <li>language: {species.language}</li>
-        <li>created: {species.created}</li>
-        <li>edited: {species.edited}</li>
-        <li>url: {species.url}</li>
       </ul>
-      <details>
-        <summary>people</summary>
-        {species.people.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>films</summary>
-        {species.films.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
+      <Heading as={"h2"}>Further Resources:</Heading>
+      <FurtherLinksAccordion
+        sections={[
+          { label: "people", urls: species.people },
+          { label: "films", urls: species.films },
+        ]}
+      />
       <Link href="/species" className="rounded-4xl mt-auto">
         <Button aria-hidden tabIndex={-1}>
           Back

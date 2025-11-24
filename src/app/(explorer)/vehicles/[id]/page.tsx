@@ -1,5 +1,5 @@
 import { getVehicle } from "@/services/swapi";
-import { Heading, PageContainer, Button } from "@/components";
+import { Heading, PageContainer, Button, FurtherLinksAccordion } from "@/components";
 import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
@@ -9,8 +9,9 @@ export default async function VehiclePage({ params }: Props) {
   const vehicle = await getVehicle(id);
 
   return (
-    <PageContainer>
+    <PageContainer className={"px-8"}>
       <Heading>{vehicle.name}</Heading>
+      <Heading as={"h2"}>Details:</Heading>
       <ul>
         <li>model: {vehicle.model}</li>
         <li>manufacturer: {vehicle.manufacturer}</li>
@@ -22,22 +23,14 @@ export default async function VehiclePage({ params }: Props) {
         <li>cargo_capacity: {vehicle.cargo_capacity}</li>
         <li>consumables: {vehicle.consumables}</li>
         <li>vehicle_class: {vehicle.vehicle_class}</li>
-        <li>created: {vehicle.created}</li>
-        <li>edited: {vehicle.edited}</li>
-        <li>url: {vehicle.url}</li>
       </ul>
-      <details>
-        <summary>pilots</summary>
-        {vehicle.pilots.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>films</summary>
-        {vehicle.films.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
+      <Heading as={"h2"}>Further Resources:</Heading>
+      <FurtherLinksAccordion
+        sections={[
+          { label: "pilots", urls: vehicle.pilots },
+          { label: "films", urls: vehicle.films },
+        ]}
+      />
       <Link href="/vehicles" className="rounded-4xl mt-auto">
         <Button aria-hidden tabIndex={-1}>
           Back

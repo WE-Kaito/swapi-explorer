@@ -1,5 +1,5 @@
 import { getStarship } from "@/services/swapi";
-import { Heading, PageContainer, Button } from "@/components";
+import { Heading, PageContainer, Button, FurtherLinksAccordion } from "@/components";
 import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
@@ -9,7 +9,7 @@ export default async function StarshipPage({ params }: Props) {
   const starship = await getStarship(id);
 
   return (
-    <PageContainer>
+    <PageContainer className={"px-8"}>
       <Heading>{starship.name}</Heading>
       <ul>
         <li>model: {starship.model}</li>
@@ -24,22 +24,14 @@ export default async function StarshipPage({ params }: Props) {
         <li>hyperdrive_rating: {starship.hyperdrive_rating}</li>
         <li>MGLT: {starship.MGLT}</li>
         <li>starship_class: {starship.starship_class}</li>
-        <li>created: {starship.created}</li>
-        <li>edited: {starship.edited}</li>
-        <li>url: {starship.url}</li>
       </ul>
-      <details>
-        <summary>pilots</summary>
-        {starship.pilots.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>films</summary>
-        {starship.films.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
+      <Heading as={"h2"}>Further Resources:</Heading>
+      <FurtherLinksAccordion
+        sections={[
+          { label: "pilots", urls: starship.pilots },
+          { label: "films", urls: starship.films },
+        ]}
+      />
       <Link href="/starships" className="rounded-4xl mt-auto">
         <Button aria-hidden tabIndex={-1}>
           Back

@@ -1,5 +1,5 @@
 import { getFilm } from "@/services/swapi";
-import { PageContainer, Heading, Button } from "@/components";
+import { PageContainer, Heading, Button, FurtherLinksAccordion } from "@/components";
 import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
@@ -9,48 +9,26 @@ export default async function FilmPage({ params }: Props) {
   const film = await getFilm(id);
 
   return (
-    <PageContainer>
+    <PageContainer className={"px-8"}>
       <Heading>{film.title}</Heading>
+      <Heading as={"h2"}>Details:</Heading>
       <ul>
         <li>episode_id: {film.episode_id}</li>
         <li>opening_crawl: {film.opening_crawl}</li>
         <li>director: {film.director}</li>
         <li>producer: {film.producer}</li>
         <li>release_date: {film.release_date}</li>
-        <li>created: {film.created}</li>
-        <li>edited: {film.edited}</li>
-        <li>url: {film.url}</li>
       </ul>
-      <details>
-        <summary>characters</summary>
-        {film.characters.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>planets</summary>
-        {film.planets.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>starships</summary>
-        {film.starships.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>vehicles</summary>
-        {film.vehicles.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
-      <details>
-        <summary>species</summary>
-        {film.species.map((url) => (
-          <div key={url}>{url}</div>
-        ))}
-      </details>
+      <Heading as={"h2"}>Further Resources:</Heading>
+      <FurtherLinksAccordion
+        sections={[
+          { label: "characters", urls: film.characters },
+          { label: "planets", urls: film.planets },
+          { label: "starships", urls: film.starships },
+          { label: "vehicles", urls: film.vehicles },
+          { label: "species", urls: film.species },
+        ]}
+      />
       <Link href="/films" className="rounded-4xl mt-auto">
         <Button aria-hidden tabIndex={-1}>
           Back
