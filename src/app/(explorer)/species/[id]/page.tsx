@@ -20,14 +20,14 @@ export default async function SpeciesDetailPage({ params }: Props) {
         <li>hair_colors: {species.hair_colors}</li>
         <li>eye_colors: {species.eye_colors}</li>
         <li>average_lifespan: {species.average_lifespan}</li>
-        <li>homeworld: {species.homeworld}</li>
         <li>language: {species.language}</li>
       </ul>
       <Heading as={"h2"}>Further Resources:</Heading>
       <FurtherLinksAccordion
         sections={[
-          { label: "people", urls: species.people },
-          { label: "films", urls: species.films },
+          { label: "Homeworld", urls: species.homeworld ? [species.homeworld] : [] },
+          { label: "People", urls: species.people },
+          { label: "Films", urls: species.films },
         ]}
       />
       <Link href="/species" className="rounded-4xl mt-auto">

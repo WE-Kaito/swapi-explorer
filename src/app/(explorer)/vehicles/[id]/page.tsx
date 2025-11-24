@@ -27,8 +27,8 @@ export default async function VehiclePage({ params }: Props) {
       <Heading as={"h2"}>Further Resources:</Heading>
       <FurtherLinksAccordion
         sections={[
-          { label: "pilots", urls: vehicle.pilots },
-          { label: "films", urls: vehicle.films },
+          { label: "Pilots", urls: vehicle.pilots },
+          { label: "Films", urls: vehicle.films },
         ]}
       />
       <Link href="/vehicles" className="rounded-4xl mt-auto">

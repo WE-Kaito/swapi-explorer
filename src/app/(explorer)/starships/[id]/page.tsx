@@ -28,8 +28,8 @@ export default async function StarshipPage({ params }: Props) {
       <Heading as={"h2"}>Further Resources:</Heading>
       <FurtherLinksAccordion
         sections={[
-          { label: "pilots", urls: starship.pilots },
-          { label: "films", urls: starship.films },
+          { label: "Pilots", urls: starship.pilots },
+          { label: "Films", urls: starship.films },
         ]}
       />
       <Link href="/starships" className="rounded-4xl mt-auto">

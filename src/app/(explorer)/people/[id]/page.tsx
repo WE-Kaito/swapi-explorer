@@ -18,15 +18,15 @@ export default async function PersonPage({ params }: Props) {
         <li>skin_color: {person.skin_color}</li>
         <li>birth_year: {person.birth_year}</li>
         <li>gender: {person.gender}</li>
-        <li>homeworld: {person.homeworld}</li>
       </ul>
       <Heading as={"h2"}>Further Resources:</Heading>
       <FurtherLinksAccordion
         sections={[
-          { label: "films", urls: person.films },
-          { label: "species", urls: person.species },
-          { label: "vehicles", urls: person.vehicles },
-          { label: "starships", urls: person.starships },
+          { label: "Homeworld", urls: [person.homeworld] },
+          { label: "Films", urls: person.films },
+          { label: "Species", urls: person.species },
+          { label: "Vehicles", urls: person.vehicles },
+          { label: "Starships", urls: person.starships },
         ]}
       />
       <Link href="/people" className="rounded-4xl mt-auto">

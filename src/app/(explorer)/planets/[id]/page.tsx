@@ -25,8 +25,8 @@ export default async function PlanetPage({ params }: Props) {
       <Heading as={"h2"}>Further Resources:</Heading>
       <FurtherLinksAccordion
         sections={[
-          { label: "residents", urls: planet.residents },
-          { label: "films", urls: planet.films },
+          { label: "Residents", urls: planet.residents },
+          { label: "Films", urls: planet.films },
         ]}
       />
       <Link href="/planets" className="rounded-4xl mt-auto">
