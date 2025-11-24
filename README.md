@@ -1,12 +1,23 @@
 # SWAPI Explorer
 
-A Next.js application to browse and explore the [Star Wars API](https://swapi.dev/).
+Browse the [Star Wars API](https://swapi.dev/) with a modern Next.js app.
+
+## Features
+
+- All SWAPI resources: People, Planets, Films, Species, Vehicles, Starships
+- Paginated lists with detail pages
+- Lazy-loaded related resources via accordion
+- Animated starfield background with flying ships
+- Fully cached responses
 
 ## Tech Stack
 
-- Next.js 16
+- Next.js 16 (App Router)
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS v4
+- Radix UI primitives and icons
+- tsparticles
 
 ## Getting Started
 
@@ -15,12 +26,21 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000)
 
 ## Scripts
 
-- `npm run dev` – Start development server
-- `npm run build` – Build for production
-- `npm run start` – Start production server
-- `npm run lint` – Run ESLint
-- `npm run format` – Format code with Prettier
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Production server |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier |
+
+## Possible Improvements
+
+- **Testing**: E2E tests with Playwright for navigation and data fetching
+- **Storybook**: Component documentation and visual testing
+- **Accessibility**: check/add ARIA descriptions, screen reader testing
+- **Tailwind**: Cleaner utility class composition (limited experience in speed-coding context)
