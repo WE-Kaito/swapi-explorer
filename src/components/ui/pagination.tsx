@@ -55,7 +55,7 @@ export function Pagination({ count, currentPage, basePath }: Props) {
     >
       {prevHref ? (
         <Link href={prevHref} aria-label="Previous page" className={"rounded-4xl"}>
-          <Button aria-hidden tabIndex={-1} className="cursor-pointer sm:w">
+          <Button aria-hidden tabIndex={-1} className="sm:w">
             <ThickArrowLeftIcon className={"sm:scale-150"} />
           </Button>
         </Link>
@@ -86,7 +86,7 @@ export function Pagination({ count, currentPage, basePath }: Props) {
 
       {nextHref ? (
         <Link href={nextHref} aria-label="Next page" className={"rounded-4xl"}>
-          <Button aria-hidden tabIndex={-1} className="cursor-pointer">
+          <Button aria-hidden tabIndex={-1}>
             <ThickArrowRightIcon className={"sm:scale-150"} />
           </Button>
         </Link>

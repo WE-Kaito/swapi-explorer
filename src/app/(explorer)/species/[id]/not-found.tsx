@@ -1,11 +1,15 @@
-import { Heading, LinkCard, PageContainer } from "@/components";
+import { Button, Heading, PageContainer } from "@/components";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
     <PageContainer>
       <Heading>Species not found</Heading>
-      <LinkCard href="/species">Back to Species</LinkCard>
-      <LinkCard href="/">Go to Home</LinkCard>
+      <Link href="/species" className="rounded-4xl">
+        <Button aria-hidden tabIndex={-1}>
+          Back to Species
+        </Button>
+      </Link>
     </PageContainer>
   );
 }

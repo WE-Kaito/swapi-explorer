@@ -1,5 +1,6 @@
 import { getPlanet } from "@/services/swapi";
-import { Heading, PageContainer } from "@/components";
+import { Heading, PageContainer, Button } from "@/components";
+import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -35,6 +36,11 @@ export default async function PlanetPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
+      <Link href="/planets" className="rounded-4xl mt-auto">
+        <Button aria-hidden tabIndex={-1}>
+          Back
+        </Button>
+      </Link>
     </PageContainer>
   );
 }

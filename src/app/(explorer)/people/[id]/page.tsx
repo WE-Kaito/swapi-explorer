@@ -1,5 +1,6 @@
 import { getPerson } from "@/services/swapi";
-import { PageContainer, Heading } from "@/components";
+import { PageContainer, Heading, Button } from "@/components";
+import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -45,6 +46,11 @@ export default async function PersonPage({ params }: Props) {
           <div key={url}>{url}</div>
         ))}
       </details>
+      <Link href="/people" className="rounded-4xl mt-auto">
+        <Button aria-hidden tabIndex={-1}>
+          Back
+        </Button>
+      </Link>
     </PageContainer>
   );
 }
