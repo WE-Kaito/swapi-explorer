@@ -1,6 +1,10 @@
 import { Heading, LinkCard, PageContainer } from "@/components";
+import { cacheLife } from "next/cache";
 
-export default function Home() {
+export default async function Home() {
+  "use cache";
+  cacheLife("max");
+
   return (
     <PageContainer className="px-8 sm:px-12 gap-8">
       <Heading>SWAPI Explorer</Heading>
