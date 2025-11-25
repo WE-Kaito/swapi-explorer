@@ -1,16 +1,12 @@
-"use client";
-
-import { use } from "react";
 import { getPlanet } from "@/services/swapi";
 import { Heading, PageContainer, Button, FurtherLinksAccordion, DetailsTable } from "@/components";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = { params: Promise<{ id: string }> };
 
-export default function PlanetPage({ params }: Props) {
-  const router = useRouter();
-  const { id } = use(params);
-  const planet = use(getPlanet(id));
+export default async function PlanetPage({ params }: Props) {
+  const { id } = await params;
+  const planet = await getPlanet(id);
 
   return (
     <PageContainer className={"px-8"}>
@@ -39,9 +35,11 @@ export default function PlanetPage({ params }: Props) {
           ]}
         />
       </section>
-      <Button onClick={() => router.back()} className="mt-auto mb-8">
-        Back
-      </Button>
+      <Link href="/planets" className="rounded-4xl mt-auto mb-8">
+        <Button aria-hidden tabIndex={-1}>
+          Back
+        </Button>
+      </Link>
     </PageContainer>
   );
 }
