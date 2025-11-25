@@ -35,7 +35,7 @@ export default async function PersonPage({ params }: Props) {
           ]}
         />
       </section>
-      <Link href="/people" className="rounded-4xl mt-auto">
+      <Link href="/people" className="rounded-4xl mt-auto mb-8">
         <Button aria-hidden tabIndex={-1}>
           Back
         </Button>

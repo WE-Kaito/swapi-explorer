@@ -35,7 +35,7 @@ export default async function FilmPage({ params }: Props) {
           ]}
         />
       </section>
-      <Link href="/films" className="rounded-4xl mt-auto">
+      <Link href="/films" className="rounded-4xl mt-auto mb-8">
         <Button aria-hidden tabIndex={-1}>
           Back
         </Button>

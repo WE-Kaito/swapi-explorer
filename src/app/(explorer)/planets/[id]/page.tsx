@@ -35,7 +35,7 @@ export default async function PlanetPage({ params }: Props) {
           ]}
         />
       </section>
-      <Link href="/planets" className="rounded-4xl mt-auto">
+      <Link href="/planets" className="rounded-4xl mt-auto mb-8">
         <Button aria-hidden tabIndex={-1}>
           Back
         </Button>

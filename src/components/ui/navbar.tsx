@@ -26,7 +26,7 @@ export function Navbar() {
   }
 
   return (
-    <NavigationMenu.Root className="flex justify-center">
+    <NavigationMenu.Root>
       <NavigationMenu.List className={"flex list-none gap-1 rounded-md p-1"}>
         <NavigationMenu.Item>
           <NavigationMenu.Link asChild active={pathname === "/"}>
@@ -57,7 +57,7 @@ export function Navbar() {
             />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
-            <ul className={"grid w-[200px] gap-1 p-2 sm:w-[300px] sm:grid-cols-2"}>
+            <ul className={"grid w-fit gap-1 p-2 sm:w-75 sm:grid-cols-2"}>
               {categories.map((category) => {
                 const isActive = pathname === category.href;
                 return (

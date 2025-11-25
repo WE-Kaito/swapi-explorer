@@ -9,7 +9,7 @@ export default async function PeoplePage({ searchParams }: Props) {
   const data = await getPeoplePage(page);
 
   return (
-    <PageContainer>
+    <PageContainer className="pb-0 sm:pb-12">
       <Heading>People</Heading>
       <div className="px-12 mb-4 flex flex-col gap-2 w-full">
         {data.results.map((person) => (

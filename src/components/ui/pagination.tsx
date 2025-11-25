@@ -24,11 +24,14 @@ export function Pagination({ count, currentPage, basePath }: Props) {
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container || totalPages <= 3) return;
+    const button = container?.querySelector("a");
+
+    if (!container || !button || totalPages <= 3) return;
 
     const checkOverflow = () => {
-      const isDesktop = window.innerWidth >= 640; // sm breakpoint
-      const buttonSize = isDesktop ? 40 : 24; // w-10 : w-6
+      const computedStyle = window.getComputedStyle(button);
+      const buttonSize = parseFloat(computedStyle.width);
+
       const requiredWidth = totalPages * buttonSize + (totalPages - 1);
 
       if (requiredWidth > container.clientWidth) {
@@ -55,25 +58,27 @@ export function Pagination({ count, currentPage, basePath }: Props) {
     >
       {prevHref ? (
         <Link href={prevHref} aria-label="Previous page" className={"rounded-4xl"}>
-          <Button aria-hidden tabIndex={-1} className="sm:w">
-            <ThickArrowLeftIcon className={"sm:scale-150"} />
+          <Button aria-hidden tabIndex={-1} className="rounded-none sm:rounded-full py-3.75">
+            <ThickArrowLeftIcon className="scale-150" />
           </Button>
         </Link>
       ) : (
-        <Button disabled aria-label="Previous page">
-          <ThickArrowLeftIcon className={"sm:scale-150"} />
+        <Button disabled aria-label="Previous page" className="rounded-none sm:rounded-full py-3.75">
+          <ThickArrowLeftIcon className="scale-150" />
         </Button>
       )}
 
-      <div ref={containerRef} className="flex w-full h-full ev items-center justify-evenly overflow-hidden min-w-0">
+      <div ref={containerRef} className="flex w-full h-full items-center justify-evenly overflow-hidden min-w-0">
         {visiblePages.map((page, index) => (
           <Fragment key={page}>
-            {visiblePages.length < totalPages && index > 0 && <DotsHorizontalIcon className="text-foreground/50" />}
+            {visiblePages.length < totalPages && index > 0 && visiblePages[index] - visiblePages[index - 1] > 1 && (
+              <DotsHorizontalIcon className="text-foreground/50" />
+            )}
             <LinkCard
               href={`${basePath}?page=${page}`}
               showIcon={false}
               className={twJoin(
-                "w-6 h-6 p-0 sm:w-10 sm:h-10 sm:p-2 rounded-full flex items-center justify-center",
+                "p-1 sm:p-2 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",
                 page === currentPage && "text-accent"
               )}
               aria-label={`Page ${page}`}
@@ -87,13 +92,13 @@ export function Pagination({ count, currentPage, basePath }: Props) {
 
       {nextHref ? (
         <Link href={nextHref} aria-label="Next page" className={"rounded-4xl"}>
-          <Button aria-hidden tabIndex={-1}>
-            <ThickArrowRightIcon className={"sm:scale-150"} />
+          <Button aria-hidden tabIndex={-1} className="rounded-none sm:rounded-full py-3.75">
+            <ThickArrowRightIcon className="scale-150" />
           </Button>
         </Link>
       ) : (
-        <Button disabled aria-label="Next page">
-          <ThickArrowRightIcon className={"sm:scale-150"} />
+        <Button disabled aria-label="Next page" className="rounded-none sm:rounded-full py-3.75">
+          <ThickArrowRightIcon className="scale-150" />
         </Button>
       )}
     </nav>

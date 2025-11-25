@@ -20,7 +20,7 @@ export default async function FilmsPage({ searchParams }: Props) {
   const sortedFilms = data.results.toSorted((a, b) => a.episode_id - b.episode_id);
 
   return (
-    <PageContainer>
+    <PageContainer className="pb-0 sm:pb-12">
       <Heading>Films</Heading>
       <div className="px-12 mb-4 flex flex-col gap-2 w-full">
         {sortedFilms.map((film) => (

@@ -9,7 +9,7 @@ export default async function StarshipsPage({ searchParams }: Props) {
   const data = await getStarshipsPage(page);
 
   return (
-    <PageContainer>
+    <PageContainer className="pb-0 sm:pb-12">
       <Heading>Starships</Heading>
       <div className="px-12 mb-4 flex flex-col gap-2 w-full">
         {data.results.map((starship) => (
