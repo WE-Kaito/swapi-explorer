@@ -31,6 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <Navbar />
           </Suspense>
         </Header>
+        <div className="mb-12" />
         {children}
         <ParticlesBackground />
       </body>

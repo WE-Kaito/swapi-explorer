@@ -45,9 +45,9 @@ export function Navbar() {
             onMouseEnter={handleHoverMenu}
             disabled={isOpening}
             className={twJoin(
-              "group flex select-none items-center gap-1 rounded px-3 py-2 text-md font-orbitron",
-              "hover:bg-foreground/10 focus:ring-2 focus:ring-foreground/20",
-              "data-[state=open]:bg-foreground/10"
+              "group flex select-none items-center gap-1 rounded-md px-3 py-2 text-md font-orbitron",
+              "hover:bg-card-background/10 focus:ring-2 focus:ring-foreground/20",
+              "data-[state=open]:bg-card-background/10"
             )}
           >
             Categories
@@ -78,7 +78,7 @@ export function Navbar() {
           </NavigationMenu.Content>
           <NavigationMenu.Viewport
             className={twJoin(
-              "absolute mt-2 left-1/2 -translate-x-1/2",
+              "absolute mt-1 left-1/2 -translate-x-1/2",
               "overflow-hidden rounded-md",
               "bg-background border border-foreground/10 shadow-lg",
               "data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut"

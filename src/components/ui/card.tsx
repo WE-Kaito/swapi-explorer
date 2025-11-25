@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/components";
+import { twJoin } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -7,7 +8,11 @@ type Props = {
 };
 
 export function Card({ className, children }: Props) {
-  const baseClassName = "rounded-md border border-foreground/10 bg-foreground/5 px-4 py-3";
+  const baseClasses = twJoin(
+    "flex w-full items-center justify-between rounded-md border border-foreground/10 px-4 py-1.75",
+    "font-orbitron",
+    "bg-foreground/2.5 backdrop-blur-xs transition-colors"
+  );
 
-  return <div className={cn(baseClassName, className)}>{children}</div>;
+  return <div className={cn(baseClasses, className)}>{children}</div>;
 }

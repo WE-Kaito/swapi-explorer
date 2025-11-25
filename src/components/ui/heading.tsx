@@ -7,7 +7,7 @@ type HeadingProps = PropsWithChildren<{
 }>;
 
 const headingSizes: Record<string, string> = {
-  h1: "text-4xl pb-4 pt-2",
+  h1: "text-4xl pb-4 pt-2 text-center",
   h2: "text-2xl py-2",
   h3: "text-1xl py-1",
 };

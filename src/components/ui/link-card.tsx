@@ -13,9 +13,9 @@ type Props = PropsWithChildren<
 
 export function LinkCard({ href, children, className, showIcon = true, ...rest }: Props) {
   const baseClasses = twJoin(
-    "flex w-full items-center justify-between rounded-md border border-foreground/10 bg-foreground/5 px-4 py-1.75",
+    "flex w-full items-center justify-between rounded-md border border-card-background/10 px-4 py-1.75",
     "font-orbitron no-underline",
-    "hover:bg-foreground/10 transition-colors"
+    "bg-card-background/5 hover:bg-card-background/10 backdrop-blur-xs active:text-accent transition-colors"
   );
 
   return (

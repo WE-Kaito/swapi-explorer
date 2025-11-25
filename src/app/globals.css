@@ -8,6 +8,7 @@
   --card: #c4beb4;
   --border: #78716c;
   --star-particle: #4b24fb;
+  --card-background: #944736;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,12 +20,18 @@
     --card: #0f1629;
     --border: #27272a;
     --star-particle: #ffffff;
+    --card-background: #6e72a6;
   }
+}
+
+@theme {
+  --breakpoint-xs: 28.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card-background: var(--card-background);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-card: var(--card);
