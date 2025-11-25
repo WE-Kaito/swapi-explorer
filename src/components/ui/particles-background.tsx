@@ -6,14 +6,18 @@ import { loadSlim } from "@tsparticles/slim";
 import { loadEmittersPlugin } from "@tsparticles/plugin-emitters";
 import { loadImageShape } from "@tsparticles/shape-image";
 
+/*
+ * Displays a background component that displays particles resembling spaceships and stars
+ * moving across the screen using the tsparticles library. Generates stars on click.
+ */
 export function ParticlesBackground() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-      await loadEmittersPlugin(engine);
-      await loadImageShape(engine);
+      await loadSlim(engine); // Load the slim preset for basic shapes and movements
+      await loadEmittersPlugin(engine); // Load the emitters plugin for generating spaceships
+      await loadImageShape(engine); // Load the image shape for spaceship images
     }).then(() => setInit(true));
   }, []);
 
@@ -24,10 +28,12 @@ export function ParticlesBackground() {
       id="tsparticles"
       className="fixed inset-0 -z-10"
       options={{
+        detectRetina: true,
         fpsLimit: 60,
+        // Main particles configuration for stars
         particles: {
           number: { value: 150 },
-          color: { value: "#ffffff" },
+          color: { value: getComputedStyle(document.documentElement).getPropertyValue("--star-particle").trim() },
           shape: { type: "circle" },
           opacity: {
             value: { min: 0.1, max: 1 },
@@ -43,6 +49,7 @@ export function ParticlesBackground() {
             outModes: "out",
           },
         },
+        // Handle events to add more stars
         interactivity: {
           events: {
             onClick: { enable: true, mode: "push" },
@@ -52,9 +59,9 @@ export function ParticlesBackground() {
             push: { quantity: 4 },
           },
         },
-        detectRetina: true,
+        // Emitters configuration for spaceships
         emitters: {
-          position: { y: { min: 25, max: 75 }, x: 0 },
+          position: { y: { min: 25, max: 75 }, x: 0 }, // Emit from the left side
           rate: { delay: 7, quantity: 1 },
           size: { width: 10, height: 100 },
           particles: {
@@ -69,11 +76,11 @@ export function ParticlesBackground() {
                 ],
               },
             },
-            opacity: { value: 0.8 },
+            opacity: { value: 1 },
             size: { value: { min: 25, max: 75 } },
             move: {
               speed: 5,
-              direction: 5,
+              direction: 5, // Top-left to bottom-right, flat angle
               outModes: { default: "destroy", left: "none", top: "none" },
               straight: true,
             },

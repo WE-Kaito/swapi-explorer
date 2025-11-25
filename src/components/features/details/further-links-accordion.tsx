@@ -9,6 +9,10 @@ import { swapiFetch, extractResourcePath } from "@/services/swapi";
 
 type Link = { path: string; name: string };
 
+/*
+ * Fetches a single SWAPI resource and extracts its name/title and path.
+ * Returns null if the fetch fails.
+ */
 async function fetchLink(url: string): Promise<Link | null> {
   try {
     const path = extractResourcePath(url);
@@ -20,16 +24,23 @@ async function fetchLink(url: string): Promise<Link | null> {
   }
 }
 
+/*
+ * Displays an accordion that lazy-loads related SWAPI resources (films, characters, planets, etc.)
+ * when a section is expanded. Each section shows a count and fetches data on-demand to avoid
+ * loading unnecessary resources. Uses skeleton loaders while fetching and caches results.
+ */
 export function FurtherLinksAccordion({ sections }: { sections: { label: string; urls: string[] }[] }) {
   const [links, setLinks] = useState<Record<string, (Link | null)[]>>({});
   const fetching = useRef(new Set<string>());
 
+  // Fetch all links for a section when opened, showing skeletons during loading
   const handleOpen = async (label: string, urls: string[]) => {
     if (fetching.current.has(label) || links[label]) return;
     fetching.current.add(label);
 
     setLinks((prev) => ({ ...prev, [label]: urls.map(() => null) }));
 
+    // Fetch links sequentially to progressively update the UI
     for (let i = 0; i < urls.length; i++) {
       const result = await fetchLink(urls[i]);
       if (result) {

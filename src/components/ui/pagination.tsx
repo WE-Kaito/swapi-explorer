@@ -13,6 +13,32 @@ type Props = {
   basePath: string;
 };
 
+/*
+ * A pagination component that adapts to the available width with truncation.
+ * Always shows first, last, and current pages when truncated.
+ *
+ * @param {number} count - Total number of items provided by the API.
+ * @param {number} currentPage - The current active page number by param.
+ * @param {string} basePath - The base path for pagination links.
+ *
+ * @example Usage in a page component:
+ *   type Props = { searchParams: Promise<{ page?: string }> };
+ *
+ *   export default async function PeoplePage({ searchParams }: Props) {
+ *   const page = Number((await searchParams).page) || 1;
+ *   const data = await getPeoplePage(page);
+ *
+ *   return (
+ *     <PageContainer>
+ *       <Heading>People</Heading>
+ *       <Content />
+ *       <Suspense fallback={<Skeleton className={"rounded-4xl"} />}>
+ *         <Pagination count={data.count} currentPage={page} basePath="/people" />
+ *       </Suspense>
+ *     </PageContainer>
+ *    );
+ *   }
+ */
 export function Pagination({ count, currentPage, basePath }: Props) {
   const totalPages = Math.ceil(count / 10); // SWAPI page size is always 10
   const containerRef = useRef<HTMLDivElement>(null);

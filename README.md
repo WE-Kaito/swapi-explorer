@@ -40,9 +40,8 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Possible Improvements
 
-- **Caching**: Pages still show loading.tsx because of use of search params. Possible solution: [generateStaticParams](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)
-- **Documentation**: More code comments using JSDoc (explanations, requirements, examples)
+- **Documentation**: More documentation for consistency
 - **Testing**: E2E tests with Playwright for navigation and data fetching
 - **Storybook**: Component documentation and visual testing
-- **Accessibility**: check/add ARIA descriptions, screen reader testing
-- **Tailwind**: Cleaner use of tailwind (limited experience + time constraint)
+- **Accessibility**: Breadcrumbs, Screen reader behavior (/keyboard navigation) on non-interactive elements, ...
+- **Tailwind**: Better utilization of theme variables and breakpoints

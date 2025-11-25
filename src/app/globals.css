@@ -7,6 +7,7 @@
   --accent: #d97706;
   --card: #c4beb4;
   --border: #78716c;
+  --star-particle: #4b24fb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --accent: #f59e0b;
     --card: #0f1629;
     --border: #27272a;
+    --star-particle: #ffffff;
   }
 }
 
