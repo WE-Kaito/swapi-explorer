@@ -1,12 +1,16 @@
+"use client";
+
+import { use } from "react";
 import { getVehicle } from "@/services/swapi";
 import { Heading, PageContainer, Button, FurtherLinksAccordion, DetailsTable } from "@/components";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = { params: Promise<{ id: string }> };
 
-export default async function VehiclePage({ params }: Props) {
-  const { id } = await params;
-  const vehicle = await getVehicle(id);
+export default function VehiclePage({ params }: Props) {
+  const router = useRouter();
+  const { id } = use(params);
+  const vehicle = use(getVehicle(id));
 
   return (
     <PageContainer className={"px-8"}>
@@ -37,11 +41,9 @@ export default async function VehiclePage({ params }: Props) {
           ]}
         />
       </section>
-      <Link href="/vehicles" className="rounded-4xl mt-auto mb-8">
-        <Button aria-hidden tabIndex={-1}>
-          Back
-        </Button>
-      </Link>
+      <Button onClick={() => router.back()} className="mt-auto mb-8">
+        Back
+      </Button>
     </PageContainer>
   );
 }
